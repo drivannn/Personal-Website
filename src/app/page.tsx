@@ -138,9 +138,9 @@ export default async function Home() {
             </p>
           </div>
           {projects.length ? (
-            <div className={projects.length === 1 ? "max-w-xl" : "grid gap-8 md:grid-cols-2 lg:grid-cols-3"}>
+            <div className={projects.length === 1 ? "max-w-4xl" : "grid gap-8 lg:grid-cols-2"}>
               {projects.slice(0, 3).map((item, index) => (
-                <div key={item.id} className={index === 1 ? "md:pt-12" : index === 2 ? "lg:pt-6" : ""}>
+                <div key={item.id} className={index === 1 ? "lg:pt-12" : index === 2 ? "lg:col-span-2 lg:max-w-[calc(50%-1rem)] lg:pt-2" : ""}>
                   <PortfolioCard item={item} index={index} />
                 </div>
               ))}

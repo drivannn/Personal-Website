@@ -27,7 +27,7 @@ export function PortfolioCard({
       <Link href={detailHref} className="block">
         <div className="scroll-frame relative border border-[var(--line)] p-3">
           <div className="ink-wash" />
-          <div className="relative aspect-[4/5] overflow-hidden bg-[linear-gradient(145deg,rgba(42,33,25,0.16),rgba(69,84,63,0.11),rgba(251,247,236,0.74))]">
+          <div className="relative aspect-[4/3] overflow-hidden bg-[linear-gradient(145deg,rgba(42,33,25,0.16),rgba(69,84,63,0.11),rgba(251,247,236,0.74))] sm:aspect-[16/10]">
             {item.thumbnail_url ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img

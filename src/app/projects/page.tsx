@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
           <div className="quiet-divider my-16" />
 
           {projects.length ? (
-            <div className={projects.length === 1 ? "max-w-xl" : "grid gap-8 md:grid-cols-2 lg:grid-cols-3"}>
+            <div className={projects.length === 1 ? "max-w-4xl" : "grid gap-8 lg:grid-cols-2"}>
               {projects.map((item, index) => (
                 <PortfolioCard key={item.id} item={item} index={index} />
               ))}
