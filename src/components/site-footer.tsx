@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Fragment } from "react";
 
 const footerLinks = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/journal", label: "Journal" },
-  { href: "/admin/login", label: "Admin", quiet: true },
 ];
 
 export function SiteFooter() {
@@ -24,34 +22,29 @@ export function SiteFooter() {
         </div>
 
         <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-7 gap-y-3 text-sm">
-          {footerLinks.map((link, index) => {
+          {footerLinks.map((link) => {
             const isActive =
               pathname === link.href ||
-              (link.href !== "/admin/login" && pathname.startsWith(`${link.href}/`)) ||
-              (link.href === "/admin/login" && pathname.startsWith("/admin"));
+              pathname.startsWith(`${link.href}/`);
 
             return (
-              <Fragment key={link.href}>
-                {link.quiet && index === footerLinks.length - 1 ? (
-                  <span className="hidden h-px w-6 bg-[var(--stamp)]/45 sm:inline-block" />
-                ) : null}
-                <Link
-                  href={link.href}
+              <Link
+                key={link.href}
+                href={link.href}
+                className={[
+                  "group relative inline-flex items-center py-1 transition-colors duration-[250ms] ease-out hover:text-[var(--paper-card)]",
+                  "opacity-90",
+                  isActive ? "text-[var(--paper-card)] opacity-100" : "",
+                ].join(" ")}
+              >
+                <span>{link.label}</span>
+                <span
                   className={[
-                    "group relative inline-flex items-center py-1 transition-colors duration-[250ms] ease-out hover:text-[var(--paper-card)]",
-                    link.quiet ? "text-xs opacity-65 hover:opacity-90" : "opacity-90",
-                    isActive ? "text-[var(--paper-card)] opacity-100" : "",
+                    "absolute -bottom-1 left-0 h-px bg-[var(--stamp)] transition-all duration-[250ms] ease-out",
+                    isActive ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-80",
                   ].join(" ")}
-                >
-                  <span>{link.label}</span>
-                  <span
-                    className={[
-                      "absolute -bottom-1 left-0 h-px bg-[var(--stamp)] transition-all duration-[250ms] ease-out",
-                      isActive ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-80",
-                    ].join(" ")}
-                  />
-                </Link>
-              </Fragment>
+                />
+              </Link>
             );
           })}
         </nav>
