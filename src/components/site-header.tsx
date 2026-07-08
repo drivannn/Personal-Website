@@ -68,7 +68,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <nav className="mx-auto max-w-[1440px] rounded-2xl border border-[var(--line)] bg-[var(--paper-card)]/90 px-4 py-3 shadow-[0_20px_40px_-24px_rgba(0,0,0,0.18)] backdrop-blur-md">
+      <nav className="mx-auto max-w-[1440px] rounded-2xl border border-[var(--line)]/60 bg-[var(--paper-card)]/70 px-4 py-3 shadow-[0_20px_40px_-24px_rgba(0,0,0,0.18)] backdrop-blur-md">
         <div className="flex items-center justify-between gap-6">
           <Link href="/" aria-label="Go to home" className="flex items-center rounded-xl px-2 py-1">
             <Image
